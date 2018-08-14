@@ -31,7 +31,7 @@ const getDiplayedVal = () => {
     throw new Error('Input not works! Should be 67')
   }
 
-//function in window are only for manula  testing
+//function in window are only for manual  testing
 
 window.inputAction = number => store.dispatch(inputAction(number))
 

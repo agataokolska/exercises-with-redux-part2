@@ -8,7 +8,8 @@ export const inputAction = number => ({type:INPUT, number})
 const initialState = {
     result: 0,
     input: 0,
-    isResultShown: false
+    isResultShown: false,
+    lastOperation: null
 }
 
 export default (state = initialState, action) =>{
@@ -16,8 +17,13 @@ export default (state = initialState, action) =>{
         case INPUT:
         return {
             ...state,
-            input: action.number,
+            input: state.input * 10 + action.number,       //parseInt(String(state.input)) + String(action.number),
             isResultShown: false
+        }
+        case ADD:
+        return{
+            ...state,
+            lastOperation: action.type
         }
         default:
         return state
