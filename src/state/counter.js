@@ -1,9 +1,9 @@
 const INC = 'counter/INC'
 const DEC = 'counter/DEC'
 
-const incAction = () => ({ type: INC })
+export const incAction = () => ({ type: INC })
 
-const decAction = () => ({ type: DEC })
+export const decAction = () => ({ type: DEC })
 
 const initialState = {
     number: 0
