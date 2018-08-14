@@ -2,6 +2,7 @@ const INPUT = 'calculator/INPUT'
 const ADD = 'calculator/ADD'
 const SUBSTRACT = 'calculator/SUBSTRACT'
 
+export const addAction = () => ({type: ADD})
 
 export const inputAction = number => ({type:INPUT, number})
 
@@ -23,7 +24,10 @@ export default (state = initialState, action) =>{
         case ADD:
         return{
             ...state,
-            lastOperation: action.type
+            result: state.result + state.input,
+            input: 0,
+            isResultShown: true,
+            lastOperation: action.type,
         }
         default:
         return state
