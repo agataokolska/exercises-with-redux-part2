@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { incAction, decAction } from '../state/counter';
 import {incAction, decAction} from '../state/counter'
 
 const Counter = (props) => (
