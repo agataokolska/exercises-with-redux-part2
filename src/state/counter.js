@@ -34,6 +34,16 @@ export default (state = initialState, action) => {
                 ...state,
                 number: state.number - 1
             }
+        case ADD:
+        return {
+            ...state,
+            number: state.number + action.number
+        }
+        case SUBSTRACT:
+        return {
+            ...state,
+            number: state.number - action.number
+        }
         default:
             return state
     }
