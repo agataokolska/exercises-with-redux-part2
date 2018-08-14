@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux'
 import counter, { incAction, decAction } from './state/counter'
 import add from './state/add'
-import calculator from './state/calculator'
+import calculator, {inputAction} from './state/calculator'
 
 const reducer = combineReducers({
     counter,
@@ -15,6 +15,31 @@ export const store = createStore(
 )
 
 
+//automatic testing
+const getDiplayedVal = () => {
+    const state = store.getState().calculator
+  
+    return state.isResultShown ? state.result : state.input
+  }
+  
+  store.dispatch(inputAction(6))
+  if (getDiplayedVal() !== 6) {
+    throw new Error('Input not works! Should be 6')
+  }
+  store.dispatch(inputAction(7))
+  if (getDiplayedVal() !== 67) {
+    throw new Error('Input not works! Should be 67')
+  }
 
-window.counterInc = () => store.dispatch(incAction())
-window.counterDec = () => store.dispatch(decAction())
+//function in window are only for manula  testing
+
+window.inputAction = number => store.dispatch(inputAction(number))
+
+window.state = () => {
+    const state = store.getState().calculator
+
+    console.log({
+    ...state,
+    display: state.isResultShown ? state.result : state.input
+    })
+}
