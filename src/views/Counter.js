@@ -6,12 +6,12 @@ const Counter = (props) => (
     <div>
         <h1>{props.number}</h1>
             <button
-                onClick={props.incHandler}
+                onClick={props._incHandler}
             >
             +
             </button>
             <button
-                onClick={props.decHandler}
+                onClick={props._decHandler}
             >
             -
             </button>
@@ -22,7 +22,7 @@ const mapStateToProps = state => ({   //function that creates props to Counter w
     number: state.counter.number
 })
 const mapDispatchToProps = dispatch => ({
-    incHandler: () => dispatch(incAction()),
-    decHandler: () => dispatch(decAction())
+    _incHandler: () => dispatch(incAction()),
+    _decHandler: () => dispatch(decAction())
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)
