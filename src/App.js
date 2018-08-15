@@ -1,13 +1,19 @@
 import React from 'react'
 import Counter from './views/Counter'
 import Calculator from './views/Calculator'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+
 class App extends React.Component {
   render() {
     return (
+      <Router>
       <div>
-        <Counter />
-        <Calculator />
+      
+        <Route path={'/'} exact component={Calculator} />
+        <Route path={'/calculator'} exact component={Calculator} />
+        <Route path={'/counter'} exact component={Counter} />
       </div>
+      </Router>
     )
   }
 }
