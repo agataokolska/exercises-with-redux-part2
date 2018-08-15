@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { inputAction } from '../state/calculator';
+import { inputAction, addAction } from '../state/calculator';
 
 const styles={
     center:{
@@ -17,7 +17,7 @@ const Calculator = (props) => (
             />
         </div>
         <div>
-            <button >+</button>
+            <button onClick={props._addAction}>+</button>
         </div>
         <div>
             <button onClick={() => props._inputAction(1)}>1</button>
@@ -48,7 +48,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    _inputAction: (number) => dispatch(inputAction(number))
+    _inputAction: (number) => dispatch(inputAction(number)),
+    _addAction: () => dispatch(addAction())
 })
 
 export default connect(
