@@ -2,6 +2,7 @@ const INPUT = 'calculator/INPUT'
 const ADD = 'calculator/ADD'
 const SUBSTRACT = 'calculator/SUBSTRACT'
 const RESULT = 'calculator/RESULT'
+const RESET = 'calculator/RESET'
 
 export const addAction = () => ({type: ADD})
 
@@ -10,6 +11,8 @@ export const substractAction = () => ({type: SUBSTRACT})
 export const inputAction = number => ({type:INPUT, number})
 
 export const resultAction = () => ({type:RESULT})
+
+export const resetAction = () => ({ type: RESET })
 
 const initialState = {
     result: 0,
@@ -59,6 +62,10 @@ export default (state = initialState, action) =>{
             input:0,
             isResultShown: true,
             lastOperation: initialState.lastOperation
+        }
+        case RESET:
+        return{
+            ...initialState
         }
         default:
         return state

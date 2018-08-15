@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { inputAction, addAction, substractAction, resultAction } from '../state/calculator';
+import { inputAction, addAction, substractAction, resultAction, resetAction } from '../state/calculator';
 
 const styles={
     center:{
@@ -20,25 +20,27 @@ const Calculator = (props) => (
             <button onClick={props._addAction}>+</button>
        
             <button onClick={props._substractAction}>-</button>
-            <button onClick={props._resultAction}>=</button>
+            
         </div>
         <div>
             <button onClick={() => props._inputAction(1)}>1</button>
-            <button>2</button>
-            <button>3</button>
+            <button onClick={() => props._inputAction(2)}>2</button>
+            <button onClick={() => props._inputAction(3)}>3</button>
         </div>
         <div>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
+            <button onClick={() => props._inputAction(4)}>4</button>
+            <button onClick={() => props._inputAction(5)}>5</button>
+            <button onClick={() => props._inputAction(6)}>6</button>
         </div>
         <div>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
+            <button onClick={() => props._inputAction(7)}>7</button>
+            <button onClick={() => props._inputAction(8)}>8</button>
+            <button onClick={() => props._inputAction(9)}>9</button>
         </div>
         <div>
-            <button>0</button>
+            <button onClick={props._resetAction}>AC</button>
+            <button onClick={() => props._inputAction(0)}>0</button>
+            <button onClick={props._resultAction}>=</button>
         </div>
 
     </div>
@@ -54,7 +56,8 @@ const mapDispatchToProps = dispatch => ({
     _inputAction: (number) => dispatch(inputAction(number)),
     _addAction: () => dispatch(addAction()),
     _substractAction: () => dispatch(substractAction()),
-    _resultAction: () => dispatch(resultAction())
+    _resultAction: () => dispatch(resultAction()),
+    _resetAction: () => dispatch(resetAction())
 })
 
 export default connect(
