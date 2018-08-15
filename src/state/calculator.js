@@ -4,6 +4,8 @@ const SUBSTRACT = 'calculator/SUBSTRACT'
 
 export const addAction = () => ({type: ADD})
 
+export const substractAction = () => ({type: SUBSTRACT})
+
 export const inputAction = number => ({type:INPUT, number})
 
 const initialState = {
@@ -28,6 +30,14 @@ export default (state = initialState, action) =>{
             input: 0,
             isResultShown: true,
             lastOperation: action.type,
+        }
+        case SUBSTRACT:
+        return{
+            ...state,
+            result: state.result - state.input,
+            input:0,
+            isResultShown: true,
+            lastOperation: action.type
         }
         default:
         return state
