@@ -8,7 +8,8 @@ class App extends React.Component {
     return (
       <Router>
       <div>
-      
+        <Link to={'/calculator'}> Calculator </Link>
+        <Link to={'/counter'}> Counter </Link>
         <Route path={'/'} exact component={Calculator} />
         <Route path={'/calculator'} exact component={Calculator} />
         <Route path={'/counter'} exact component={Counter} />
