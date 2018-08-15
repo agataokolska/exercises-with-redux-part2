@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { inputAction, addAction, substractAction, resultAction, resetAction } from '../state/calculator';
+import { inputAction, addAction, substractAction, resultAction, resetAction, divisionAction, multiplyAction } from '../state/calculator';
 
-const styles={
-    center:{
+const styles = {
+    center: {
         textAlign: 'center'
     }
 }
@@ -11,16 +11,17 @@ const Calculator = (props) => (
     <div style={styles.center}>
         <div>
             <input
-            type="text"
-            disabled={true}
-            value={props._isResultShown ? props._result : props._input}
+                type="text"
+                disabled={true}
+                value={props._isResultShown ? props._result : props._input}
             />
         </div>
         <div>
             <button onClick={props._addAction}>+</button>
-       
+
             <button onClick={props._substractAction}>-</button>
-            
+            <button onClick={props._divisionAction}>/</button>
+            <button onClick={props._multiplyAction}>*</button>
         </div>
         <div>
             <button onClick={() => props._inputAction(1)}>1</button>
@@ -57,7 +58,10 @@ const mapDispatchToProps = dispatch => ({
     _addAction: () => dispatch(addAction()),
     _substractAction: () => dispatch(substractAction()),
     _resultAction: () => dispatch(resultAction()),
-    _resetAction: () => dispatch(resetAction())
+    _resetAction: () => dispatch(resetAction()),
+    _divisionAction: () => dispatch(divisionAction()),
+    _multiplyAction: () => dispatch(multiplyAction())
+
 })
 
 export default connect(
