@@ -1,8 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+const styles={
+    center:{
+        textAlign: 'center'
+    }
+}
 const Calculator = (props) => (
-    <div>
+    <div style={styles.center}>
         <div>
             <button>+</button>
         </div>
